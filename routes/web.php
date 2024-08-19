@@ -19,12 +19,15 @@ use App\Model\KelasModel;
 |
 */
 
-// Route::get('/Absen', function () {
-//     return KelasModel::all();
-// });
-
 Route::get('/', [LoginController::class, 'login'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'Pengunjung']);
+    Route::get('/dashboard/ranking', [DashboardController::class, 'ViewPengunjungTerbanyak']);
+    Route::post('/dashboard/ranking/siswaterbanyak', [DashboardController::class, 'PengunjungTerbanyak'])->name('siswaterbanyak');
+    // Rute lainnya yang membutuhkan autentikasi
+});
 
 Route::get('/register', [RegisterController::class, 'register'])->name('register');
 Route::post('register/action', [RegisterController::class, 'actionregister'])->name('actionregister');
@@ -34,9 +37,6 @@ Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('acti
 
 Route::get('/Absen', [KelasController::class, 'tampilkelas']);
 
-Route::get('/dashboard', [DashboardController::class, 'Pengunjung']);
-Route::get('/dashboard/ranking', [DashboardController::class, 'ViewPengunjungTerbanyak']);
-Route::post('/dashboard/ranking/siswaterbanyak', [DashboardController::class, 'PengunjungTerbanyak'])->name('siswaterbanyak');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
