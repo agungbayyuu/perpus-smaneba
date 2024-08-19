@@ -45,7 +45,7 @@
                 
                 <!-- Modal -->
 
-                <form class="modal" tabindex="-3" role="dialog" id="modal">
+                <form class="modal" tabindex="-3" role="dialog" id="modal" style="height: 600px">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                         <div class="modal-header">
@@ -58,19 +58,27 @@
                         </div>
                         
                         <div class="modal-body">
-                            <div class="dropdown">
-                                <h5>Kelas</h5>
-                                <select class="btn btn-secondary dropdown-toggle" type="button" id="daftarkelas" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-placeholder="Kelas">
-                                    <option value="">Pilih Kelas</option>
-                                    @foreach ($data as $item)
-                                        <option value="{{ $item->id_kelas }}">{{ $item->nama_kelas }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <h5>Nama Pengunjung</h5>
-                                <select name="nama_siswa" class="btn btn-secondary dropdown-toggle" id="daftarsiswa" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" width="100px">    
-                                </select>
-                        </div>
+                              <div class="dropdown">
+                                  <h5>Kelas</h5>
+                                  <select class="btn btn-secondary dropdown-toggle" type="button" id="daftarkelas" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-placeholder="Kelas">
+                                      <option value="">Pilih Kelas</option>
+                                      @foreach ($data as $item)
+                                          <option value="{{ $item->id_kelas }}">{{ $item->nama_kelas }}</option>
+                                      @endforeach
+                                  </select>
+                              </div>
+                              <h5>Nama Pengunjung</h5>
+                                  <select name="nama_siswa" class="btn btn-secondary dropdown-toggle" id="daftarsiswa" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" width="100px">    
+                                  </select>
+                                  <br>
+                              <h5>Tujuan</h5>
+                                  <select name="nama_siswa" class="btn btn-secondary dropdown-toggle" id="tujuan" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" width="100px">    
+                                    <option value="Membaca">Membaca</option>
+                                    <option value="Pinjam/mengembalikan buku">Pinjam/mengembalikan buku</option>
+                                    <option value="Koordinasi">Koordinasi</option>
+                                    <option value="Konsultasi">Konsultasi</option>
+                                  </select>
+                          </div>
                         <div class="modal-footer">
                             <div class="button-modal">
                                 <button class="start-button" action="{{}}"><b>Submit</b></button>
@@ -145,6 +153,7 @@
     $('#modal').on('submit', function(event) {
     event.preventDefault(); // Mencegah submit default
     var idSiswa = $('#daftarsiswa').val();
+    var tujuan = $('#tujuan').val();
     console.log('ID Siswa yang dipilih:', idSiswa);
 
 
@@ -154,7 +163,8 @@
       url: '/api/daftarhadir', // Ganti dengan URL endpoint di server
       method: 'POST',
       data: {
-        id_siswa : idSiswa
+        id_siswa : idSiswa,
+        tujuan : tujuan
       },
       success: function(response) {
         console.log('Data berhasil dikirim:');

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KelasController;
 use Illuminate\Http\Request;
@@ -19,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+// Route::post('/regis', [RegisterController::class, 'create']);
 // Route::get('/nama', 'KelasController@tampilnama');
 Route::get('/nama/{id_kelas}', [KelasController::class, 'tampilnama']);
 Route::post('/daftarhadir', [KelasController::class, 'kehadiran']);

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>Dashboard Perpustakaan</title>
-  <link rel="icon" href="logo-smaneba.png">
+  <link rel="icon" href="../logo-smaneba.png">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -20,7 +20,27 @@
         
     /* On small screens, set height to 'auto' for the grid */
     @media screen and (max-width: 767px) {
-      .row.content {height: auto;} 
+      .row.content {height: auto;}
+    }
+    .sidebar-img {
+      width: 200px;
+      margin: 20px auto;
+    }
+    @media (max-width: 1920px) {
+        .sidebar-img {
+            width: 300px;
+        }
+    }
+    @media (max-width: 768px) {
+        .sidebar-img {
+            width: 150px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .sidebar-img {
+            width: 100px;
+        }
     }
   </style>
 </head>

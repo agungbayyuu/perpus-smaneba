@@ -14,7 +14,7 @@ class DashboardController extends Controller
         $daftarHadir = DB::table('daftarhadir')
             ->join('siswa', 'siswa.id_siswa', '=', 'daftarhadir.id_siswa')
             ->join('kelas', 'kelas.id_kelas', '=', 'siswa.id_kelas')
-            ->select('siswa.nama_siswa', 'kelas.nama_kelas', 'daftarhadir.created_at')
+            ->select('siswa.nama_siswa', 'kelas.nama_kelas', 'daftarhadir.tujuan','daftarhadir.created_at')
             ->orderByDesc('id_daftarhadir')
             ->paginate(8);
         return view ('pengunjung', ['data'=>$daftarHadir]);

@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="logo-smaneba.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login - Aplikasi Nilai Santri</title>
+    <title>Login Admin Perpustakaan</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container"><br>
+    <div class="container" style="margin-top: 80px"><br>
         <div class="col-md-4 col-md-offset-4">
-            <img src="logo-smaneba.png" alt="" height="50px" width="50px" style="text-align: center;">
-            <h2 class="text-center"><b>Perpustakaan SMANEBA</b></h3>
+            <img src="Perpustakaan.png" alt="" height="120px" width="350px" style="margin: auto">
             <hr>
             @if(session('error'))
             <div class="alert alert-danger">
@@ -30,6 +30,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Log In</button>
                 <hr>
+                <p class="text-center">Belum punya akun? <a href="#">Register</a> sekarang!</p>
             </form>
         </div>
     </div>

@@ -2,7 +2,7 @@
 
 @section('sidebar')
 <div class="col-sm-3 sidenav hidden-xs" style="height: 100vh">
-  <b><h3>Perpustakaan SMANEBA</h3></b>
+  <img src="perpus-removebg.png" alt="" class="sidebar-img">
   <ul class="nav nav-pills nav-stacked" style="padding-top: 20px">
     <li class="active"><a href="/dashboard">Daftar Hadir</a></li>
     <li><a href="/dashboard/ranking">Pengunjung Terbanyak</a></li>
@@ -19,6 +19,7 @@
         <tr>
             <th>Nama Siswa</th>
             <th>Kelas</th>
+            <th>Tujuan</th>
             <th>Tanggal Daftar Hadir</th>
         </tr>
     </thead>
@@ -27,6 +28,7 @@
         <tr>
             <td>{{ $d->nama_siswa }}</td>
             <td>{{ $d->nama_kelas }}</td>
+            <td>{{ $d->tujuan }}</td>
             <td>{{ $d->created_at }}</td>
         </tr>
         @endforeach

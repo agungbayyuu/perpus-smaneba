@@ -27,7 +27,7 @@ class KelasController extends Controller
         // Buat data kehadiran baru
         $kehadiran = new DaftarHadir();
         $kehadiran->id_siswa = $request->id_siswa;
-
+        $kehadiran->tujuan = $request->tujuan;
         // Simpan data ke database
         $kehadiran->save();
 
