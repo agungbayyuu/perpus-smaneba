@@ -168,7 +168,7 @@
         tujuan : tujuan
       },
       success: function(response) {
-        console.log('Data berhasil dikirim' + response);
+        console.log(response);
         document.getElementById("response-pop-up").style.display = "block";
         document.getElementById("modal").style.display = "none";
         document.getElementById("modal-title").innerHTML = "Absensi Berhasil";
@@ -177,10 +177,10 @@
       },
       error: function(error) {
         
-        console.error('Terjadi kesalahan:', error);
+        console.error('Terjadi kesalahan:', error.responseJSON.message);
         document.getElementById("response-pop-up").style.display = "block";
         document.getElementById("modal-title").innerHTML = "Absensi Gagal";
-        document.getElementById("modal-body").innerHTML = error;
+        document.getElementById("modal-body").innerHTML = error.responseJSON.message;
         
             // Tampilkan modal
         $('#response-pop-up').modal('show');

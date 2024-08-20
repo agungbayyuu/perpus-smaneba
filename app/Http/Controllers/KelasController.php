@@ -28,6 +28,8 @@ class KelasController extends Controller
         $request->validate([
             'id_siswa' => 'required',
             'tujuan' => 'required',
+        ],[
+            'required' => 'Nama siswa dan tujuan wajib diisi',
         ]);
 
         // Cek apakah siswa sudah absen hari ini
@@ -40,7 +42,7 @@ class KelasController extends Controller
             return response()->json([
                 'success' => false,
                 'message' => 'Siswa sudah melakukan absen hari ini.'
-            ], 422);
+            ],422);    
         }
         // Buat data kehadiran baru
         $kehadiran = new DaftarHadir();
@@ -50,7 +52,10 @@ class KelasController extends Controller
         $kehadiran->save();
 
         // Redirect atau berikan response sesuai kebutuhan
-        return redirect()->back()->with('success', 'Data kehadiran berhasil ditambahkan');
+        return response()->json([
+            'success' => true,
+            'message' => 'Absensi Berhasil'
+        ],200);
         return route('/Absen');
     }
 }
