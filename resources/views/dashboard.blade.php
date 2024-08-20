@@ -31,6 +31,11 @@
             width: 300px;
         }
     }
+    @media (max-width: 1000px) {
+        .sidebar-img {
+            width: 190px;
+        }
+    }
     @media (max-width: 768px) {
         .sidebar-img {
             width: 150px;
@@ -42,6 +47,7 @@
             width: 100px;
         }
     }
+
   </style>
 </head>
 <body>

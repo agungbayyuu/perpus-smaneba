@@ -22,15 +22,14 @@
             @csrf
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" name="email" class="form-control" placeholder="Email" required="">
+                    <input type="email" name="email" class="form-control" placeholder="Email" required="" style="border-radius: 10px; height: 40px;">
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" name="password" class="form-control" placeholder="Password" required="">
+                    <input type="password" name="password" class="form-control" placeholder="Password" required="" style="border-radius: 10px; height: 40px;">
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">Log In</button>
+                <button type="submit" class="btn btn-primary btn-block" style="background-color: #16877d; border-radius: 10px; margin-top: 40px; height: 40px;">Log In</button>
                 <hr>
-                <p class="text-center">Belum punya akun? <a href="#">Register</a> sekarang!</p>
             </form>
         </div>
     </div>
