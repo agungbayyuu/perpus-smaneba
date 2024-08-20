@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DaftarHadir;
 use App\Models\KelasModel;
 use App\Models\SiswaModel;
+use Carbon\Carbon;
 use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Request as FacadesRequest;
 use Request;
@@ -23,7 +24,24 @@ class KelasController extends Controller
     }
     public function kehadiran(HttpRequest $request)
     {
+        // Validasi input
+        $request->validate([
+            'id_siswa' => 'required',
+            'tujuan' => 'required',
+        ]);
 
+        // Cek apakah siswa sudah absen hari ini
+        $today = Carbon::today();
+        $existingAbsen = DaftarHadir::where('id_siswa', $request->id_siswa)
+                                ->whereDate('created_at', $today)
+                                ->first();
+
+        if ($existingAbsen) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Siswa sudah melakukan absen hari ini.'
+            ], 422);
+        }
         // Buat data kehadiran baru
         $kehadiran = new DaftarHadir();
         $kehadiran->id_siswa = $request->id_siswa;

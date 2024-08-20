@@ -38,11 +38,11 @@
                     document.getElementById("modal").style.display = "none";
                     }
 
-                    function closePopUpSuccess() {
-                    document.getElementById("pop-up-sucess").style.display = "none";
-                    }
-                    function closePopUpFail() {
-                    document.getElementById("pop-up-fail").style.display = "none";
+                    function closePopUp() {
+                      document.getElementById("response-pop-up").style.display = "none";
+                      document.getElementById("modal").style.display = "none";
+                      location.reload();
+
                     }
                 </script>
                 
@@ -78,7 +78,7 @@
                                   <select name="nama_siswa" class="btn btn-secondary dropdown-toggle" id="tujuan" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" width="50px">
                                     <option value="">Pilih Tujuan</option>
                                     <option value="Membaca">Membaca</option>
-                                    <option value="Pinjam/mengembalikan buku">Pinjam/mengembalikan buku</option>
+                                    <option value="Pinjam/mengembalikan buku">Pinjam / mengembalikan buku</option>
                                     <option value="Koordinasi">Koordinasi</option>
                                     <option value="Konsultasi">Konsultasi</option>
                                   </select>
@@ -96,49 +96,24 @@
 
                 {{-- Pop Up Berhasil--}}
 
-                <div class="modal" id="pop-up-success" tabindex="-1" role="dialog">
+                <div class="modal" id="response-pop-up" tabindex="-1" role="dialog">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h5 class="modal-title">Absensi Berhasil</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <h5 class="modal-title" id="modal-title"></h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closePopUp()">
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
                         <div class="modal-body">
-                          <p>Selamat menikmati fasilitas perpustakaan.</p>
-                          <p>Terimakasih</p>
+                          <p id="modal-body"></p>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" onclick="closePopUpSucess()" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-secondary" onclick="closePopUp()" data-dismiss="modal">Close</button>
                         </div>
                       </div>
                     </div>
                   </div>
-
-                  {{-- Pop Up Gagal--}}
-
-                <div class="modal" id="pop-up-fail" tabindex="-1" role="dialog">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title">Absensi Gagal</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <p>Mohon isikan nama dan tujuan.</p>
-                        <p>Terimakasih</p>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" onclick="closePopUpFail()" data-dismiss="modal">Close</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
 
             </div>
             <div class="landing-kanan">
@@ -193,17 +168,22 @@
         tujuan : tujuan
       },
       success: function(response) {
-        console.log('Data berhasil dikirim:');
+        console.log('Data berhasil dikirim' + response);
+        document.getElementById("response-pop-up").style.display = "block";
         document.getElementById("modal").style.display = "none";
-        document.getElementById("pop-up-success").style.display = "block";
+        document.getElementById("modal-title").innerHTML = "Absensi Berhasil";
+        document.getElementById("modal-body").innerHTML = "Selamat menikmati fasilitas perpustakaan.";
 
-        // Tampilkan pesan sukses atau lakukan tindakan lain
       },
       error: function(error) {
+        
         console.error('Terjadi kesalahan:', error);
-        document.getElementById("modal").style.display = "block";
-        document.getElementById("pop-up-fail").style.display = "block";
-        // Tampilkan pesan error
+        document.getElementById("response-pop-up").style.display = "block";
+        document.getElementById("modal-title").innerHTML = "Absensi Gagal";
+        document.getElementById("modal-body").innerHTML = error;
+        
+            // Tampilkan modal
+        $('#response-pop-up').modal('show');
       }
     });
   });
