@@ -25,7 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/nama/{id_kelas}', [KelasController::class, 'tampilnama']);
 Route::post('/daftarhadir', [KelasController::class, 'kehadiran']);
 Route::get('/daftarhadir',[DashboardController::class, 'tampilDashboard']);
-Route::post('/siswaTerbanyak',[DashboardController::class, 'PengunjungTerbanyak']);
+Route::get('/siswaterbanyak/api',[DashboardController::class, 'PengunjungTerbanyakData']);
 
 
 

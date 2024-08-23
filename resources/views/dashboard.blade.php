@@ -57,6 +57,8 @@
     @yield('sidebar')
     <br>
     @yield('konten')
+    <br>
+    @yield('konten_pdf')
   </div>
 </div>
 

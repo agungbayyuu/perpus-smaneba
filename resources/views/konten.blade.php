@@ -22,6 +22,7 @@
     <input type="date" name="tanggal_akhir" id="tanggal_akhir">
     <button type="submit">Cari</button>
   </form>
+  <a href="/dashboard/ranking/print" class="btn btn-primary" target="_blank">CETAK PDF</a>
   <div class="well" style="margin-top: 30px">
     <h4>Pengunjung Terbanyak</h4>
     <table class="table">
