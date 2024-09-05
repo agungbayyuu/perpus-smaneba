@@ -14,15 +14,33 @@
 @section('konten')
 
 <div class="col-sm-9">
-  <form action="{{ route('siswaterbanyak') }}" method="POST" style="padding-top: 20px">
+  <form action="#" method="POST" id="myForm">
     @csrf
     <label for="tanggal_mulai">Tanggal Mulai:</label>
     <input type="date" name="tanggal_mulai" id="tanggal_mulai">
     <label for="tanggal_akhir">Tanggal Akhir:</label>
     <input type="date" name="tanggal_akhir" id="tanggal_akhir">
-    <button type="submit">Cari</button>
+    <button type="button" onclick="submitForm('cari')">Cari</button>
+    <button type="button" onclick="submitForm('cetak')">Cetak</button>
   </form>
-  <a href="/dashboard/ranking/print" class="btn btn-primary" target="_blank">CETAK PDF</a>
+  <script>
+      function submitForm(action) {
+          let form = document.getElementById('myForm');
+          if (action === 'cari') {
+              // document.getElementById('saved_tanggal_mulai').value = document.getElementById('tanggal_mulai').value;
+              // document.getElementById('saved_tanggal_akhir').value = document.getElementById('tanggal_akhir').value;
+              form.action = "{{ route('siswaterbanyak') }}";
+          } else if (action === 'cetak') {
+              form.action = "{{ route('CetakPengunjung') }}";
+          } else {
+              // Handle kasus jika action tidak valid
+              console.error('Aksi tidak valid');
+              return;
+          }
+          form.submit();
+      }
+    </script>
+
   <div class="well" style="margin-top: 30px">
     <h4>Pengunjung Terbanyak</h4>
     <table class="table">

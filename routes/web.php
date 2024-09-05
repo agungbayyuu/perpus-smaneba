@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'Pengunjung']);
     Route::get('/dashboard/ranking', [DashboardController::class, 'PengunjungTerbanyak']);
     Route::post('/dashboard/ranking', [DashboardController::class, 'PengunjungTerbanyak'])->name('siswaterbanyak');
-    Route::get('/dashboard/ranking/print', [DashboardController::class, 'CetakPengunjungTerbanyak']);
+    Route::post('/dashboard/ranking/print', [DashboardController::class, 'CetakPengunjungTerbanyak'])->name('CetakPengunjung');
     // Rute lainnya yang membutuhkan autentikasi
     Route::get('/register', [RegisterController::class, 'register'])->name('register');
     Route::post('register/action', [RegisterController::class, 'actionregister'])->name('actionregister');
