@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BukuController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KelasController;
@@ -28,18 +29,17 @@ Route::middleware('auth')->group(function () {
     Route::post('/dashboard/ranking', [DashboardController::class, 'PengunjungTerbanyak'])->name('siswaterbanyak');
     Route::post('/dashboard/ranking/print', [DashboardController::class, 'CetakPengunjungTerbanyak'])->name('CetakPengunjung');
     // Rute lainnya yang membutuhkan autentikasi
-    Route::get('/register', [RegisterController::class, 'register'])->name('register');
-    Route::post('register/action', [RegisterController::class, 'actionregister'])->name('actionregister');
-
+    Route::get('/buku', [BukuController::class, 'view_tampil_buku']);
+    
 });
 
-
+Route::get('/register', [RegisterController::class, 'register'])->name('register');
+Route::post('register/action', [RegisterController::class, 'actionregister'])->name('actionregister');
 
 Route::get('home', [DashboardController::class, 'index'])->name('home')->middleware('auth');
 Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
 
 Route::get('/Absen', [KelasController::class, 'tampilkelas']);
-
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
