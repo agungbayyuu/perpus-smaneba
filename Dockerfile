@@ -5,14 +5,7 @@ FROM php:8.2-fpm-alpine
 WORKDIR /var/www/html
 
 # Install paket tambahan yang dibutuhkan Laravel
-RUN apk add --no-cache \
-    libzip-dev \
-    libpng-dev \
-    libjpeg-turbo-dev \
-    libwebp-dev \
-    freetype-dev \
-    libicu-dev \
-    && docker-php-ext-install zip pdo_mysql pdo_pgsql mbstring gd exif
+RUN apt install php8.1-fpm php8.1-common php8.1-mysql php8.1-xml php8.1-ctype php8.1-curl php8.1-gd php8.1-dom php8.1-cli php8.1-dev php8.1-imap php8.1-mbstring php8.1-soap php8.1-zip php8.1-bcmath php8.1-fileinfo php8.1-pdo php8.1-tokenizer -y
 
 # Instal composer
 COPY composer.json composer.lock ./
