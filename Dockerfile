@@ -18,9 +18,6 @@ RUN apk add --no-cache \
 COPY composer.json composer.lock ./
 RUN composer install --no-interaction --prefer-dist
 
-# Copy file konfigurasi PHP (opsional)
-COPY php.ini /usr/local/etc/php/
-
 # Copy aplikasi Laravel
 COPY . .
 
