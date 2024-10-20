@@ -27,7 +27,12 @@ Route::get('/nama/{id_kelas}', [KelasController::class, 'tampilnama']);
 Route::post('/daftarhadir', [KelasController::class, 'kehadiran']);
 Route::get('/daftarhadir',[DashboardController::class, 'tampilDashboard']);
 Route::get('/siswaterbanyak/api',[DashboardController::class, 'PengunjungTerbanyakData']);
-Route::get('/buku',[BukuController::class, 'tampil_buku']);
+Route::get('/buku',[BukuController::class, 'api_tampil_buku']);
+Route::get('/buku/{id}',[BukuController::class, 'tampil_buku_byId']);
+Route::post('/buku/tambah',[BukuController::class, 'tambah_buku']);
+Route::post('/buku/hapus/{id}',[BukuController::class, 'api_delete_buku']);
+Route::post('/buku/update/{id}',[BukuController::class, 'api_update_buku']);
+
 
 
 

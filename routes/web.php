@@ -20,7 +20,7 @@ use App\Model\KelasModel;
 |
 */
 
-Route::get('/', [LoginController::class, 'login'])->name('login');
+Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
 
 Route::middleware('auth')->group(function () {
@@ -30,7 +30,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/dashboard/ranking/print', [DashboardController::class, 'CetakPengunjungTerbanyak'])->name('CetakPengunjung');
     // Rute lainnya yang membutuhkan autentikasi
     Route::get('/buku', [BukuController::class, 'view_tampil_buku']);
-    
+    Route::post('/buku/update/{id}', [BukuController::class, 'update_buku']);
+    Route::delete('/buku/delete/{id}', [BukuController::class, 'delete_buku']);
+    Route::post('/buku/tambah',[BukuController::class, 'tambah_buku'])->name('tambah_buku');
+
 });
 
 Route::get('/register', [RegisterController::class, 'register'])->name('register');
@@ -39,7 +42,7 @@ Route::post('register/action', [RegisterController::class, 'actionregister'])->n
 Route::get('home', [DashboardController::class, 'index'])->name('home')->middleware('auth');
 Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
 
-Route::get('/Absen', [KelasController::class, 'tampilkelas']);
+Route::get('/', [KelasController::class, 'tampilkelas']);
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
