@@ -5,7 +5,7 @@
         "api/index.php": { "runtime": "vercel-php@0.6.0" }
     },
     "routes": [
-        { "src": "/build/(.*)", "dest": "/public/build/" },
+        { "src": "/build/(.*)", "dest": "/public/" },
         { "src": "/(.*)", "dest": "/api/index.php" }
     ],
     "public": true,
@@ -25,9 +25,10 @@
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "cookie",
         "DB_CONNECTION": "mysql",
-        "DB_HOST": "j1dw3.h.filess.io",
-        "DB_PORT": "3305",
-        "DB_DATABASE": "perpus_currentbuy",
-        "DB_USERNAME": "perpus_currentbuy"
+        "DB_HOST": "vxjhg.h.filess.io",
+        "DB_PORT": "3307",
+        "DB_DATABASE": "perpus_deadlandas",
+        "DB_USERNAME": "perpus_deadlandas",
+        "DB_PASSWORD": "2645e0a4a2ddbbf092014ade18b7af93888364fa"
     }
 }

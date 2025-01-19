@@ -7,6 +7,7 @@
     <li><a href="/dashboard">Daftar Hadir</a></li>
     <li class="active"><a href="/dashboard/ranking/">Pengunjung Terbanyak</a></li>
     <li><a href="/buku">Buku</a></li>
+    <li><a href="/peminjaman">Peminjaman</a></li>
     <li><a href="/actionlogout">Logout</a></li>
   </ul><br>
 </div>

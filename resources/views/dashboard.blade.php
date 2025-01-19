@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>Dashboard Perpustakaan</title>
-  <link rel="icon" href="../logo-smaneba.png">
+  <link rel="icon" href="/logo-smaneba.png">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">

@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Model\KelasModel;
@@ -33,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/buku/update/{id}', [BukuController::class, 'update_buku']);
     Route::delete('/buku/delete/{id}', [BukuController::class, 'delete_buku']);
     Route::post('/buku/tambah',[BukuController::class, 'tambah_buku'])->name('tambah_buku');
+    Route::get('/peminjaman',[PeminjamanController::class, 'tampil_peminjaman']);
 
 });
 
